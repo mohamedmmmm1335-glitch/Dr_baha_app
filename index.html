@@ -38,7 +38,7 @@
         .btn-social { background: var(--purple); grid-column: span 2; }
 
         .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center; }
-        .modal-content { background: white; padding: 25px; border-radius: 20px; width: 85%; max-width: 400px; position: relative; text-align: right; }
+        .modal-content { background: white; padding: 25px; border-radius: 20px; width: 85%; max-width: 400px; position: relative; text-align: center; }
         .close { position: absolute; top:10px; left:15px; font-size: 25px; cursor: pointer; color: #999; }
         .link-btn { display: block; background: var(--purple); color: white; padding: 10px; border-radius: 10px; text-decoration: none; margin-top: 10px; font-weight: bold; }
     </style>
@@ -93,12 +93,12 @@
     <div class="modal-content">
         <span class="close" onclick="hideModal()">×</span>
         <h3 style="color:var(--primary)">🎓 الدرجات العلمية</h3>
-        <ul id="modalBody"></ul>
+        <ul id="modalBody" style="text-align: right;"></ul>
     </div>
 </div>
 
 <div id="socialModal" class="modal">
-    <div class="modal-content" style="text-align: center;">
+    <div class="modal-content">
         <span class="close" onclick="hideModal()">×</span>
         <h3 style="color:var(--purple)">روابط التواصل والباركود</h3>
         <img id="qrImg" src="" style="width: 250px; height: 250px; margin: 15px 0; border-radius: 10px; border: 1px solid #eee;">
@@ -136,7 +136,7 @@
                 map: "https://plus.codes/42Q6+JVQ+Beni+Suef",
                 qualifications: ["أخصائي جراحة العظام والمفاصل والعمود الفقري"],
                 qr: "abdelrahman-clinic-qr.png",
-                socialUrl: ""
+                socialUrl: "" // حط الرابط هنا لو لقيته والزرار هيظهر
             }
         ],
         "باطنة": [], "أطفال": [], "جراحة": [], "جلدية": [], "رمد": [], "أنف وأذن": []
@@ -196,14 +196,19 @@
 
     function showQuals(spec, i) {
         const doc = data[spec][i];
-        document.getElementById('modalBody').innerHTML = doc.qualifications.map(q => `<li style="margin-bottom:8px;">${q}</li>`).join('');
+        document.getElementById('modalBody').innerHTML = doc.qualifications.map(q => `<li style="margin-bottom:8px; text-align:right;">${q}</li>`).join('');
         document.getElementById('infoModal').style.display = 'flex';
     }
 
     function showSocial(qr, link) {
         if(!qr && !link) return alert("سيتم إضافة الروابط قريباً");
-        document.getElementById('qrImg').src = qr || "";
-        document.getElementById('qrImg').style.display = qr ? "inline-block" : "none";
+        const qrImg = document.getElementById('qrImg');
+        if(qr) {
+            qrImg.src = qr;
+            qrImg.style.display = "inline-block";
+        } else {
+            qrImg.style.display = "none";
+        }
         document.getElementById('socialLink').innerHTML = link ? `<a href="${link}" target="_blank" class="link-btn">زيارة صفحة الدكتور</a>` : "";
         document.getElementById('socialModal').style.display = 'flex';
     }
@@ -222,4 +227,5 @@
     }
 </script>
 </body>
-</html>
+                                                                                      </html>
+                                                                                      
