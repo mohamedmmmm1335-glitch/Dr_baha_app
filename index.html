@@ -101,7 +101,9 @@
     <div class="modal-content">
         <span class="close" onclick="hideModal()">×</span>
         <h3 style="color:var(--purple)">روابط التواصل والباركود</h3>
-        <img id="qrImg" src="" style="width: 250px; height: 250px; margin: 15px 0; border-radius: 10px; border: 1px solid #eee;">
+        <div id="qrContent">
+            <img id="qrImg" src="" style="width: 250px; height: 250px; margin: 15px 0; border-radius: 10px; border: 1px solid #eee;">
+        </div>
         <div id="socialLink"></div>
     </div>
 </div>
@@ -200,16 +202,28 @@
         document.getElementById('infoModal').style.display = 'flex';
     }
 
+    // تم تعديل هذه الدالة لضمان تحديث الروابط بدقة لكل دكتور
     function showSocial(qr, link) {
         if(!qr && !link) return alert("سيتم إضافة الروابط قريباً");
+        
         const qrImg = document.getElementById('qrImg');
+        const socialLinkDiv = document.getElementById('socialLink');
+        
+        // تحديث صورة الباركود
         if(qr) {
             qrImg.src = qr;
             qrImg.style.display = "inline-block";
         } else {
             qrImg.style.display = "none";
         }
-        document.getElementById('socialLink').innerHTML = link ? `<a href="${link}" target="_blank" class="link-btn">زيارة صفحة الدكتور</a>` : "";
+        
+        // تحديث زرار الرابط (مسح القديم وكتابة الجديد)
+        if(link) {
+            socialLinkDiv.innerHTML = `<a href="${link}" target="_blank" class="link-btn">زيارة صفحة الدكتور</a>`;
+        } else {
+            socialLinkDiv.innerHTML = "";
+        }
+        
         document.getElementById('socialModal').style.display = 'flex';
     }
 
@@ -227,5 +241,4 @@
     }
 </script>
 </body>
-    </html>
-    
+</html>
