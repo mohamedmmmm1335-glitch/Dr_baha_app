@@ -142,7 +142,25 @@
                 socialUrl: "https://www.facebook.com/drabdelrahman.mostafa.5" 
             }
         ],
-        "باطنة": [], "أطفال": [], "جراحة": [], "جلدية": [], "رمد": [], "أنف وأذن": []
+        "أطفال": [
+            {
+                name: "د. محمد سيد عويس",
+                phone: "01220327149",
+                address: "باها شرق البلد 42Q8+Q44 Beni Suef",
+                time: "يومياً من 5 م حتى 12 ص",
+                workDays: [0, 1, 2, 3, 4, 5, 6], startH: 17, endH: 24,
+                map: "https://www.google.com/maps/search/42Q8%2BQ44+Beni+Suef",
+                qualifications: [
+                    "استشاري طب الاطفال وحديثي الولادة",
+                    "ماجستير طب الأطفال جامعة الأزهر",
+                    "اخصائي التغذية العلاجية لمرضى المخ والأعصاب",
+                    "أخصائي أمراض التمثيل الغذائي والسكر بوزارة الصحة"
+                ],
+                qr: "mohamed-rabea-clinic-qr.png",
+                socialUrl: ""
+            }
+        ],
+        "باطنة": [], "جراحة": [], "جلدية": [], "رمد": [], "أنف وأذن": []
     };
 
     function checkStatus(doc) {
@@ -161,7 +179,6 @@
             document.getElementById(s).classList.toggle('hidden', s !== id);
         });
         window.scrollTo(0,0);
-        // إرسال حدث لجوجل عند التنقل بين الأقسام
         gtag('event', 'page_view', { page_title: id });
     }
 
@@ -197,7 +214,6 @@
                 </div>
             </div>`;
         showSection('section-doctor-detail');
-        // تسجيل عرض تفاصيل الدكتور
         gtag('event', 'view_doctor', { doctor_name: doc.name, specialty: spec });
     }
 
@@ -223,5 +239,4 @@
     window.onclick = function(event) { if (event.target.className === 'modal') hideModal(); }
 </script>
 </body>
-    </html>
-    
+</html>
