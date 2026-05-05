@@ -161,6 +161,8 @@
             document.getElementById(s).classList.toggle('hidden', s !== id);
         });
         window.scrollTo(0,0);
+        // إرسال حدث لجوجل عند التنقل بين الأقسام
+        gtag('event', 'page_view', { page_title: id });
     }
 
     function renderDoctorList(spec) {
@@ -195,6 +197,8 @@
                 </div>
             </div>`;
         showSection('section-doctor-detail');
+        // تسجيل عرض تفاصيل الدكتور
+        gtag('event', 'view_doctor', { doctor_name: doc.name, specialty: spec });
     }
 
     function showQuals(spec, i) {
