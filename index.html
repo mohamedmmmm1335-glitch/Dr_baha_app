@@ -42,7 +42,7 @@
         .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center; }
         .modal-content { background: white; padding: 25px; border-radius: 20px; width: 85%; max-width: 400px; position: relative; text-align: center; }
         .close { position: absolute; top:10px; left:15px; font-size: 25px; cursor: pointer; color: #999; }
-        .link-btn { display: block; background: var(--purple); color: white; padding: 10px; border-radius: 10px; text-decoration: none; margin-top: 10px; font-weight: bold; }
+        .link-btn { display: block; background: var(--purple); color: white; padding: 12px; border-radius: 10px; text-decoration: none; margin-top: 15px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -104,7 +104,7 @@
         <span class="close" onclick="hideModal()">×</span>
         <h3 style="color:var(--purple)">روابط التواصل والباركود</h3>
         <div id="qrContent">
-            <img id="qrImg" src="" style="width: 250px; height: 250px; margin: 15px 0; border-radius: 10px; border: 1px solid #eee;">
+            <img id="qrImg" src="" style="width: 280px; height: 280px; margin: 15px 0; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
         </div>
         <div id="socialLink"></div>
     </div>
@@ -150,7 +150,7 @@
                 address: "باها شرق البلد 42Q8+Q44 Beni Suef",
                 time: "يومياً من 5 م حتى 12 ص",
                 workDays: [0, 1, 2, 3, 4, 5, 6], startH: 17, endH: 24,
-                map: "https://www.google.com/maps/search/?api=1&query=29.1303,31.0253",
+                map: "https://plus.codes/42Q8+Q44+Beni+Suef",
                 qualifications: [
                     "استشاري طب الاطفال وحديثي الولادة",
                     "ماجستير طب الأطفال جامعة الأزهر",
@@ -158,7 +158,7 @@
                     "أخصائي أمراض التمثيل الغذائي والسكر بوزارة الصحة"
                 ],
                 qr: "mohamed-rabea-clinic-qr1.png",
-                socialUrl: "https://www.facebook.com/Mohamed.Sayed.Oweis"
+                socialUrl: "https://www.facebook.com/mohamed.ewis.clinic"
             }
         ],
         "باطنة": [], "جراحة": [], "جلدية": [], "رمد": [], "أنف وأذن": []
@@ -243,7 +243,6 @@
 
     window.onclick = function(event) { if (event.target.className === 'modal') hideModal(); }
 
-    // تفعيل الـ Service Worker للأوفلاين
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('./sw.js')
