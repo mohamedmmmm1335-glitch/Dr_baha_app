@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0DMXK0V6P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-E0DMXK0V6P');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دكتور القرية - باها</title>
-    
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="logo.png">
     <meta name="theme-color" content="#007bff">
-
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         :root { --primary: #007bff; --success: #28a745; --purple: #6f42c1; --bg: #f4f7f6; }
         body { font-family: 'Cairo', sans-serif; margin: 0; background: var(--bg); color: #333; -webkit-tap-highlight-color: transparent; }
         header { background: linear-gradient(45deg, #007bff, #00c6ff); color: white; padding: 25px; text-align: center; border-radius: 0 0 25px 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .container { padding: 15px; max-width: 800px; margin: auto; }
-        
         .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 10px; }
         .card { background: white; padding: 20px; border-radius: 20px; text-align: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid transparent; }
         .card:active { transform: scale(0.95); background: #eef6ff; }
         .card .icon { font-size: 35px; margin-bottom: 8px; display: block; }
         .card .label { font-weight: bold; font-size: 15px; }
-
         .hidden { display: none; }
         .back-btn { background: #fff; border: 1px solid #ddd; padding: 8px 20px; border-radius: 50px; cursor: pointer; margin-bottom: 15px; font-weight: bold; font-family: 'Cairo'; display: flex; align-items: center; gap: 5px; }
-
         .folder-item { background: white; padding: 18px 20px; border-radius: 15px; margin-bottom: 10px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-right: 5px solid var(--primary); }
-
         .doctor-detail-card { background: white; padding: 25px; border-radius: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); text-align: right; border-top: 6px solid var(--primary); }
         .status-badge { display: inline-block; padding: 6px 15px; border-radius: 50px; font-weight: bold; margin-bottom: 15px; font-size: 0.9rem; }
-        
         .info-row { margin-bottom: 12px; line-height: 1.6; }
         .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 25px; }
         .btn { text-align: center; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: bold; color: white; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.9rem; border: none; cursor: pointer; }
         .btn-call { background: var(--success); }
         .btn-map { background: var(--primary); }
         .btn-social { background: var(--purple); grid-column: span 2; }
-
         .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center; }
         .modal-content { background: white; padding: 25px; border-radius: 20px; width: 85%; max-width: 400px; position: relative; text-align: center; }
         .close { position: absolute; top:10px; left:15px; font-size: 25px; cursor: pointer; color: #999; }
@@ -202,28 +203,11 @@
         document.getElementById('infoModal').style.display = 'flex';
     }
 
-    // تم تعديل هذه الدالة لضمان تحديث الروابط بدقة لكل دكتور
     function showSocial(qr, link) {
-        if(!qr && !link) return alert("سيتم إضافة الروابط قريباً");
-        
         const qrImg = document.getElementById('qrImg');
         const socialLinkDiv = document.getElementById('socialLink');
-        
-        // تحديث صورة الباركود
-        if(qr) {
-            qrImg.src = qr;
-            qrImg.style.display = "inline-block";
-        } else {
-            qrImg.style.display = "none";
-        }
-        
-        // تحديث زرار الرابط (مسح القديم وكتابة الجديد)
-        if(link) {
-            socialLinkDiv.innerHTML = `<a href="${link}" target="_blank" class="link-btn">زيارة صفحة الدكتور</a>`;
-        } else {
-            socialLinkDiv.innerHTML = "";
-        }
-        
+        if(qr) { qrImg.src = qr; qrImg.style.display = "inline-block"; } else { qrImg.style.display = "none"; }
+        if(link) { socialLinkDiv.innerHTML = `<a href="${link}" target="_blank" class="link-btn">زيارة صفحة الدكتور</a>`; } else { socialLinkDiv.innerHTML = ""; }
         document.getElementById('socialModal').style.display = 'flex';
     }
 
@@ -232,13 +216,8 @@
         document.getElementById('socialModal').style.display = 'none';
     }
 
-    window.onclick = function(event) {
-        if (event.target.className === 'modal') hideModal();
-    }
-
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js'); });
-    }
+    window.onclick = function(event) { if (event.target.className === 'modal') hideModal(); }
 </script>
 </body>
-</html>
+    </html>
+    
