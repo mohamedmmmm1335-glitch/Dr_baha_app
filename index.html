@@ -42,7 +42,7 @@
         .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index: 1000; align-items: center; justify-content: center; }
         .modal-content { background: white; padding: 25px; border-radius: 20px; width: 85%; max-width: 400px; position: relative; text-align: center; }
         .close { position: absolute; top:10px; left:15px; font-size: 25px; cursor: pointer; color: #999; }
-        .link-btn { display: block; background: var(--purple); color: white; padding: 12px; border-radius: 10px; text-decoration: none; margin-top: 15px; font-weight: bold; }
+        .link-btn { display: block; background: var(--purple); color: white; padding: 10px; border-radius: 10px; text-decoration: none; margin-top: 10px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -104,7 +104,7 @@
         <span class="close" onclick="hideModal()">×</span>
         <h3 style="color:var(--purple)">روابط التواصل والباركود</h3>
         <div id="qrContent">
-            <img id="qrImg" src="" style="width: 280px; height: 280px; margin: 15px 0; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <img id="qrImg" src="" style="width: 250px; height: 250px; margin: 15px 0; border-radius: 10px; border: 1px solid #eee;">
         </div>
         <div id="socialLink"></div>
     </div>
@@ -112,41 +112,6 @@
 
 <script>
     const data = {
-        "باطنة": [
-            {
-                name: "د. أسماء كامل سيد",
-                phone: "01155911879",
-                address: "الموقف الكوبري الغربي بجوار مسجد الحاج سيد - أعلى صيدلية دكتور أحمد فاضل",
-                time: "يومياً عدا الثلاثاء والجمعة (6:30 م - 11:30 م)",
-                workDays: [0, 1, 3, 4, 6], startH: 18.5, endH: 23.5,
-                map: "https://plus.codes/42R5+FMH+Beni+Suef",
-                qualifications: [
-                    "استشاري الباطنة العامة والغدد والسكر والمناعة والروماتيزم",
-                    "مدرس بكلية الطب جامعة بني سويف",
-                    "عضو الجمعية المصرية لأمراض الروماتيزم والمناعة الإكلينيكية"
-                ],
-                qr: "asmaa-clinic-qr.png",
-                socialUrl: "https://facebook.com/groups/1427547048714878/"
-            }
-        ],
-        "أطفال": [
-            {
-                name: "د. محمد سيد عويس (محمد ربيع)",
-                phone: "01220327149",
-                address: "باها شرق البلد 42Q8+Q44 Beni Suef",
-                time: "يومياً من 5 م حتى 12 ص",
-                workDays: [0, 1, 2, 3, 4, 5, 6], startH: 17, endH: 24,
-                map: "https://plus.codes/42Q8+Q44+Beni+Suef",
-                qualifications: [
-                    "استشاري طب الاطفال وحديثي الولادة",
-                    "ماجستير طب الأطفال جامعة الأزهر",
-                    "اخصائي التغذية العلاجية لمرضى المخ والأعصاب",
-                    "أخصائي أمراض التمثيل الغذائي والسكر بوزارة الصحة"
-                ],
-                qr: "mohamed-rabea-clinic-qr1.png",
-                socialUrl: "https://www.facebook.com/mohamed.ewis.clinic"
-            }
-        ],
         "نساء وتوليد": [
             {
                 name: "د. محمود حمدي عبد البصير",
@@ -178,15 +143,48 @@
                 socialUrl: "https://www.facebook.com/drabdelrahman.mostafa.5" 
             }
         ],
+        "أطفال": [
+            {
+                name: "د. محمد سيد عويس (محمد ربيع)",
+                phone: "01220327149",
+                address: "باها شرق البلد 42Q8+Q44 Beni Suef",
+                time: "يومياً من 5 م حتى 12 ص",
+                workDays: [0, 1, 2, 3, 4, 5, 6], startH: 17, endH: 24,
+                map: "https://plus.codes/42Q8+Q44+Beni+Suef",
+                qualifications: [
+                    "استشاري طب الاطفال وحديثي الولادة",
+                    "ماجستير طب الأطفال جامعة الأزهر",
+                    "اخصائي التغذية العلاجية لمرضى المخ والأعصاب",
+                    "أخصائي أمراض التمثيل الغذائي والسكر بوزارة الصحة"
+                ],
+                qr: "mohamed-rabea-clinic-qr1.png",
+                socialUrl: "https://www.facebook.com/mohamed.ewis.clinic"
+            }
+        ],
+        "باطنة": [
+            {
+                name: "د. أسماء كامل سيد",
+                phone: "01155911879",
+                address: "الموقف الكوبري الغربي بجوار مسجد الحاج سيد - أعلى صيدلية دكتور أحمد فاضل",
+                time: "يومياً عدا الثلاثاء والجمعة (6:30 م - 11:30 م)",
+                workDays: [0, 1, 3, 4, 6], startH: 18.5, endH: 23.5,
+                map: "https://plus.codes/42R5+FMH+Beni+Suef",
+                qualifications: [
+                    "استشاري الباطنة العامة والغدد والسكر والمناعة والروماتيزم",
+                    "مدرس بكلية الطب جامعة بني سويف",
+                    "عضو الجمعية المصرية لأمراض الروماتيزم والمناعة الإكلينيكية"
+                ],
+                qr: "Asmaa-clinic-qr.png",
+                socialUrl: "https://facebook.com/groups/1427547048714878/"
+            }
+        ],
         "جراحة": [], "جلدية": [], "رمد": [], "أنف وأذن": []
     };
 
-    // وظيفة تتبع المكالمات لجوجل أناليتكس
     function trackCall(name, category) {
-        gtag('event', 'phone_call', {
-            'doctor_name': name,
-            'category': category
-        });
+        if (typeof gtag === 'function') {
+            gtag('event', 'phone_call', { 'doctor_name': name, 'category': category });
+        }
     }
 
     function checkStatus(doc) {
@@ -205,6 +203,7 @@
             document.getElementById(s).classList.toggle('hidden', s !== id);
         });
         window.scrollTo(0,0);
+        if (typeof gtag === 'function') { gtag('event', 'page_view', { page_title: id }); }
     }
 
     function renderDoctorList(spec) {
@@ -212,5 +211,69 @@
         container.innerHTML = `<h2 style="text-align:center; color:var(--primary);">دكاترة ${spec}</h2>`;
         const docs = data[spec] || [];
         if(docs.length === 0) {
-            container.innerHTML += `
+            container.innerHTML += `<p style="text-align:center; padding:50px; color:#999;">سيتم إضافة دكاترة ${spec} قريباً إن شاء الله</p>`;
+        } else {
+            docs.forEach((doc, i) => {
+                container.innerHTML += `<div class="folder-item" onclick="renderDoctorDetail('${spec}', ${i})"><span>👨‍⚕️ ${doc.name}</span><span>التفاصيل ⬅</span></div>`;
+            });
+        }
+        showSection('section-doctors-list');
+    }
+
+    function renderDoctorDetail(spec, i) {
+        const doc = data[spec][i];
+        const status = checkStatus(doc);
+        document.getElementById('back-to-list-btn').onclick = () => renderDoctorList(spec);
+        document.getElementById('detail-container').innerHTML = `
+            <div class="doctor-detail-card">
+                <div class="status-badge" style="background:${status.bg}; color:${status.color}">${status.text}</div>
+                <h2>${doc.name}</h2>
+                <div class="info-row">📍 <b>العنوان:</b><br>${doc.address}</div>
+                <div class="info-row">⏰ <b>المواعيد:</b><br>${doc.time}</div>
+                <button class="btn" style="background:#f0f7ff; color:var(--primary); width:100%; margin:15px 0; border:1px solid #d0e4ff;" onclick="showQuals('${spec}', ${i})">🎓 عرض الشهادات والخبرات</button>
+                <div class="actions">
+                    <a href="tel:${doc.phone}" class="btn btn-call" onclick="trackCall('${doc.name}', '${spec}')">📞 اتصال</a>
+                    <a href="${doc.map}" target="_blank" class="btn btn-map">🗺️ الخريطة</a>
+                    <button class="btn btn-social" onclick="showSocial('${doc.qr}', '${doc.socialUrl}')">🌐 الباركود والسوشيال</button>
+                </div>
+            </div>`;
+        showSection('section-doctor-detail');
+        if (typeof gtag === 'function') { gtag('event', 'view_doctor', { doctor_name: doc.name, specialty: spec }); }
+    }
+
+    function showQuals(spec, i) {
+        const doc = data[spec][i];
+        document.getElementById('modalBody').innerHTML = doc.qualifications.map(q => `<li style="margin-bottom:8px; text-align:right;">${q}</li>`).join('');
+        document.getElementById('infoModal').style.display = 'flex';
+    }
+
+    function showSocial(qr, link) {
+        const qrImg = document.getElementById('qrImg');
+        const socialLinkDiv = document.getElementById('socialLink');
+        if(qr) { qrImg.src = qr; qrImg.style.display = "inline-block"; } else { qrImg.style.display = "none"; }
+        if(link && link.trim() !== "") { 
+            socialLinkDiv.innerHTML = `<a href="${link}" target="_blank" class="link-btn">زيارة صفحة الدكتور</a>`; 
+        } else { 
+            socialLinkDiv.innerHTML = ""; 
+        }
+        document.getElementById('socialModal').style.display = 'flex';
+    }
+
+    function hideModal() { 
+        document.getElementById('infoModal').style.display = 'none';
+        document.getElementById('socialModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) { if (event.target.className === 'modal') hideModal(); }
+
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('Offline System Ready'))
+                .catch(err => console.log('Offline System Failed', err));
+        });
+    }
+</script>
+</body>
+    </html>
     
